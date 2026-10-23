@@ -60,6 +60,7 @@ def _one(args):
     g = torch.Generator().manual_seed(seed)
     x = torch.rand(60000, 784, generator=g).to(device)
     y = torch.randint(0, 10, (60000,), generator=g).to(device)
+    second_dataset = torch.rand(60000, 784, generator=g).to(device)  # the runner keeps both datasets on GPU
     t = time.time()
     train.train_ff("K-LGT", data.ImageTask, x[:50000], y[:50000], x[50000:55000], y[50000:55000],
                    {"lr": 1e-3, "wd": 1e-4, "c": 0.25}, seed, emax=1, device=device)
@@ -71,11 +72,16 @@ def throughput(device, k_list):
     ctx = mp.get_context("spawn")
     for k in k_list:
         t = time.time()
-        with ctx.Pool(k) as pool:
-            per = pool.map(_one, [(device, i) for i in range(k)])
+        try:
+            with ctx.Pool(k) as pool:
+                per = pool.map(_one, [(device, i) for i in range(k)])
+        except Exception as e:  # k exceeding VRAM is excluded (§9.3: "w granicach VRAM")
+            out[k] = {"error": type(e).__name__}
+            break
         wall = time.time() - t
         out[k] = {"wall_sec": wall, "per_job_sec": per, "layer_epochs_per_hour": 2 * k / wall * 3600}
-    best = max(out, key=lambda k: out[k]["layer_epochs_per_hour"])
+    ok = {k: v for k, v in out.items() if "error" not in v}
+    best = max(ok, key=lambda k: ok[k]["layer_epochs_per_hour"])
     return out, best
 
 
@@ -96,7 +102,8 @@ def main(argv=None):
     with open(a.out, "w") as f:
         json.dump(res, f, indent=1)
     print(json.dumps({"checks": res["checks"], "k_best": res["k_best"],
-                      "throughput": {k: round(v["layer_epochs_per_hour"]) for k, v in res["throughput"].items()}},
+                      "throughput": {k: v.get("error") or round(v["layer_epochs_per_hour"])
+                                     for k, v in res["throughput"].items()}},
                      indent=1))
 
 

@@ -145,8 +145,9 @@ def plots(out):
                 draw(ax, f["final"], "model końcowy")
                 continue
             pnum = 0 if arm.startswith("BP") else (1 if phase == "L1" else 2)
-            if arm.startswith("BP") and phase == "L2":
-                e = {10: 200, 100: 500, 1000: 2000}[e]  # BP has one phase: later epochs instead
+            if arm.startswith("BP"):  # BP has a single phase: show monotonically later epochs instead
+                e = {("L1", 0): 0, ("L1", 10): 10, ("L1", 100): 100, ("L1", "koniec"): 200,
+                     ("L2", 10): 500, ("L2", 100): 1000, ("L2", 1000): "koniec"}[(phase, e)]
             sel = np.where(ph == pnum)[0]
             if e == "koniec":
                 k = sel[-1]
@@ -173,11 +174,12 @@ def plots(out):
                 if key in r["curves"]:
                     c = np.array(r["curves"][key])
                     if len(c):
-                        xs += list(c[:, 0] + offset + 1), ys += list(c[:, 1])
+                        xs.extend(c[:, 0] + offset + 1)
+                        ys.extend(c[:, 1])
                         if key == "layer1":
                             ax.axvline(offset + len(c), color=colors[r["arm"]], lw=0.4, ls=":")
                         offset += len(c)
-            ax.plot(np.concatenate(xs) if xs else [], np.concatenate(ys) if ys else [], color=colors[r["arm"]],
+            ax.plot(xs, ys, color=colors[r["arm"]],
                     lw=0.8, alpha=0.8, label=labels[r["arm"]] if r["seed"] == SEEDS[0] else None)
         ax.set_xscale("log")
         ax.set_title(f"w={w}", fontsize=8)

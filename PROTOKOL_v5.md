@@ -153,7 +153,7 @@ Wyjściem warstwy FF jest wyjście ostatniej podwarstwy. Z niego liczona jest do
 
 - **MNIST** (LeCun i in., 1998) i **Fashion-MNIST** (Xiao i in., 2017): po 60 000 obrazów treningowych i 10 000 testowych.
 - Przetwarzanie: piksele /255, bez augmentacji, wektor 784.
-- Pliki źródłowe (gz) są dołączone do obrazu Dockera. Ich hashe SHA-256 są w `SHA256SUMS` (§10), a runner weryfikuje je przy starcie.
+- Pliki źródłowe (gz) są kopiowane na instancję (`rsync`) razem z kodem. Ich hashe SHA-256 są w `dane/SHA256SUMS_DANE` (część `SHA256SUMS`, §10); runner weryfikuje je przy każdym wczytaniu, a skrypt wdrożenia dodatkowo po skopiowaniu (por. R4-10; zmiana przed zamrożeniem, §12.6).
 - **QMNIST** (Yadav i Bottou, 2019): dodatkowe 50 000 cyfr testowych (`what='test50k'`), używane wyłącznie w analizie wrażliwości §7.8(d). Hash także w `SHA256SUMS`.
 
 ### 4.2. Podziały
@@ -289,8 +289,8 @@ Strumienie `split`, `order` i `neg` są identyczne dla wszystkich ramion przy ty
 | Sprzęt | GPU wynajęte w Vast.ai (D1). Cały zbiór danych w pamięci GPU. k biegów równolegle na karcie, każdy w osobnym procesie; k ustalane w §9.3 i stałe |
 | Determinizm | `torch.use_deterministic_algorithms(True)`, `CUBLAS_WORKSPACE_CONFIG=:4096:8` |
 | Wątki CPU | `torch.set_num_threads(1)` na proces, `set_num_interop_threads(1)`; k ≤ liczba vCPU instancji |
-| Środowisko | jeden obraz Dockera (hash) na całe badanie, zawierający dane (§4.1); wersje i sterownik hosta zapisywane w JSON każdego biegu |
-| E10 | CPU lokalnie (sieci < 5 000 parametrów); full-batch AdamW; E_max = 2 000 epok na warstwę, cierpliwość 100; strojenie: 8 punktów Sobola z przestrzeni §5.3, identycznych dla wszystkich ramion i budżetów, na walidacji spirali przy ziarnie 50000 (spoza ziaren ewaluacyjnych); punkt wybierany osobno dla każdej pary (ramię, budżet) (por. R5-03) |
+| Środowisko | oficjalny obraz `pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime` na całe badanie; dane i kod kopiowane z weryfikacją hashy (§4.1); wersje Pythona, PyTorch, CUDA, GPU, sterownik hosta i commit kodu zapisywane w JSON każdego biegu |
+| E10 | CPU lokalnie (sieci < 5 000 parametrów); full-batch AdamW; E_max = 5 000 epok na warstwę, cierpliwość 1 000 (zmiana przed zamrożeniem, §12.6); strojenie: 8 punktów Sobola z przestrzeni §5.3, identycznych dla wszystkich ramion i budżetów, na walidacji spirali przy ziarnie 50000 (spoza ziaren ewaluacyjnych); punkt wybierany osobno dla każdej pary (ramię, budżet) (por. R5-03) |
 
 Inicjalizacja domyślna nie jest optymalna dla wszystkich nieliniowości. Wyniki są warunkowe względem niej (§13).
 
@@ -751,6 +751,15 @@ Pełne tabele w `odpowiedzi/O2.md` i `odpowiedzi/O3.md`. Wszystkie zarzuty zamkn
 | R5-05 | §7.4: zdanie NIESPÓJNY-ZGODNY-KIERUNEK |
 | R5-06 | `DECYZJE_AUTORA.md` D1 zsynchronizowane z §11.1 |
 
+### 12.6. Zmiany przed zamrożeniem, wynikające z implementacji (23.10.2026)
+
+| Zmiana | Powód |
+|---|---|
+| §4.1, §5.7: dane kopiowane na instancję z weryfikacją hashy zamiast wbudowania w obraz Dockera; oficjalny obraz PyTorch z ustaloną wersją | wbudowanie danych wymagałoby własnego rejestru obrazów; weryfikacja hashy przy każdym wczytaniu daje tę samą gwarancję |
+| §5.7 (E10): E_max 2 000 → 5 000, cierpliwość 100 → 1 000 | test wykonalności na ziarnie strojenia 50000 (spoza ziaren ewaluacyjnych): FF na spirali uczy się z długimi plateau; przy cierpliwości 100 wszystkie ramiona FF zatrzymywały się na ~65% (BP: 100%), przy cierpliwości 1 000 część konfiguracji osiąga 99–100%. Bez tej zmiany rysunek E10 byłby artefaktem zbyt wczesnego zatrzymania |
+| §13.14: ograniczenie F-MNIST | wynik testu 9.1.8 (38.9% > 1%), zgodnie z regułą §9.1.8 |
+| §15: mapowanie protokołu na kod | identyfikowalność implementacji |
+
 ---
 
 ## 13. Ograniczenia znane przed badaniem
@@ -772,6 +781,7 @@ Pełne tabele w `odpowiedzi/O2.md` i `odpowiedzi/O3.md`. Wszystkie zarzuty zamkn
 11. Przy szerokim S na Fashion-MNIST mały, zgodny kierunkowo efekt może dać NIESPÓJNY-ZGODNY-KIERUNEK zamiast klasy P (§7.4).
 12. **E9:** konfiguracje przeniesione z w = 250 bez ponownego strojenia; θ skaluje się jak c · w. Mniejsze sieci mogą być przez to dostrojone gorzej, nierówno między ramionami.
 13. **E10:** zadanie syntetyczne 2D, wejście FF z etykietą konkatenowaną, dopasowanie parametrów łączne (nie per warstwa). Wynik jest ilustracją, nie dowodem.
+14. **Nakładanie etykiety na Fashion-MNIST** (test 9.1.8): 38.9% obrazów treningowych F-MNIST ma niezerowe piksele w pozycjach 0–9 (MNIST: 0%). Nadpisanie tych pikseli etykietą usuwa część informacji z górnej krawędzi obrazu. Dotyczy jednakowo wszystkich ramion FF; ramiona BP widzą obraz bez zmian, co zawyża lukę FF–BP w E2 na F-MNIST.
 
 ---
 
@@ -794,3 +804,27 @@ Pełne tabele w `odpowiedzi/O2.md` i `odpowiedzi/O3.md`. Wszystkie zarzuty zamkn
 - Xiao, H., Rasul, K., & Vollgraf, R. (2017). Fashion-MNIST: a novel image dataset for benchmarking machine learning algorithms. *arXiv:1708.07747*.
 - Yadav, C., & Bottou, L. (2019). Cold case: The lost MNIST digits. *NeurIPS 2019*.
 - Yarotsky, D. (2017). Error bounds for approximations with deep ReLU networks. *Neural Networks*, 94, 103–114.
+
+---
+
+## 15. Implementacja (katalog `kod/`)
+
+| Plik | Sekcje protokołu |
+|---|---|
+| `ffexp/streams.py` | §4.3 strumienie losowe |
+| `ffexp/data.py` | §4.1–4.4 dane, hashe, podziały, blokada zbioru testowego, spirala |
+| `ffexp/models.py` | §3 ramiona, nieliniowości, topologie, liczby parametrów |
+| `ffexp/train.py` | §5.1–5.2, §5.7, §7.6 uczenie FF i BP, wczesne zatrzymanie, NaN |
+| `ffexp/plans.py` | §5.2–5.5 plany etapów, reguła E_max, wybór top-3, reguła brzegowa, wybór konfiguracji |
+| `ffexp/runner.py` | §5.5, §8 wykonanie, zapis atomowy, zaślepienie (`zaslepione/`) |
+| `ffexp/monitor.py` | §8 monitor (wyłącznie liczby biegów) |
+| `ffexp/sync_verify.py`, `vast/*.sh` | §8 wdrożenie i synchronizacja z weryfikacją hashy |
+| `ffexp/gpu_check.py` | §9.1.6, §9.1.9 na docelowym GPU; pomiar przepustowości (§9.3) |
+| `ffexp/minipilot.py` | §9.3, §7.5, §5.2, §11.2 wyprowadzenie N, S, σ_d, ρ, E_max, kosztu |
+| `ffexp/analysis.py` | §7.2–7.5 reguły decyzyjne, łączenie zbiorów, symulacja mocy |
+| `ffexp/selftest_analysis.py` | §9.2 test potoku analizy (z niezależną implementacją referencyjną) |
+| `ffexp/evaluate_test.py` | §5.6 ewaluacja testowa bramkowana hashami |
+| `ffexp/final.py` | §7.3–7.8 analiza konfirmacyjna, wrażliwość, analizy eksploracyjne |
+| `ffexp/spiral.py` | E10, §7.9 rysunki |
+| `tests/test_protokol.py` | §9.1.1–9.1.10 |
+

@@ -72,3 +72,5 @@ Ewentualne osobne badanie konfirmacyjne (wariant B) zostaje odłożone do czasu 
 - Wartości N, S, σ_d, ρ i E_max (§7.5, §5.2) wyprowadza się **wyłącznie z mini-pilota 2.0**, na nowych ziarnach 40011–40020, tym samym skryptem `ffexp/minipilot.py`.
 - Mini-pilot 1 (ziarna 40001–40010, etykieta nakładana na piksele) jest raportowany jako pilot techniczny, a jego wyniki nie wchodzą do wyprowadzeń.
 - Decyzja zapisana i commitowana, zanim autor lub asystent obejrzał jakiekolwiek wartości dokładności lub wyprowadzone parametry z mini-pilota 1. Do tego momentu sprawdzana była wyłącznie liczba ukończonych biegów.
+
+**Uzupełnienie D4 (23.10.2026):** mini-pilot 1 został przerwany na 60/160 ukończonych biegach, za zgodą autora. Wyniki mini-pilota 2.0 wystarczają do wszystkich wyprowadzeń (te same 8 ramion, 10 ziaren, 2 zbiory). Ukończone biegi mini-pilota 1 są zachowane i raportowane jako pilot techniczny.

@@ -47,3 +47,28 @@ Analogia z korą mózgową była dopisana po fakcie i nie jest motywacją badani
 - **E10:** mały test dopasowania do spirali 2D, z rysunkiem map decyzyjnych do pracy (lokalnie, CPU).
 
 Ewentualne osobne badanie konfirmacyjne (wariant B) zostaje odłożone do czasu wyników E9 i E10.
+
+## D4 – Mini-pilot 2.0 (23.10.2026, przed wglądem w wyniki mini-pilota 1)
+
+**Decyzja autora:** po zakończeniu mini-pilota 1 wykonywany jest mini-pilot 2.0. Rozwiązuje on dwa problemy wykryte podczas implementacji (PROTOKOL_v5 §12.6).
+
+**1. Etykieta na Fashion-MNIST.**
+- Etykieta nie nadpisuje pikseli 0–9. Jest doklejana jako 10 dodatkowych wejść (one-hot), więc wejście FF ma 794 wymiary.
+- Zmiana dotyczy obu zbiorów, bo procedura ma być jednakowa (na MNIST piksele 0–9 i tak są zawsze tłem).
+- Wymiary bloków K przeliczone dla wejścia 794:
+  - w = 250: blok 1 794→164→164→250;
+  - w = 64: blok 1 794→56→56→64;
+  - pozostałe wymiary bez zmian.
+- Ramiona BP widzą obraz 784 bez etykiety, jak dotąd.
+
+**2. Spirala: pilot dynamiki uczenia.**
+- Ziarna pilotowe 49001–49003, spoza ziaren strojenia (50000) i ewaluacji (50001–50010) E10.
+- Konfiguracja stała: lr 3e-3, wd 1e-4, c 0.05.
+- Ramiona: `P-R`, `K-LGT`, `K-GGT`, `BP-P-R`; budżety w = 16 i 64.
+- Zapis map decyzyjnych w trakcie uczenia, krzywe uczenia, animacja.
+- **Reguła ustalona teraz:** jeśli w więcej niż 25% biegów pilota najlepsza epoka którejkolwiek warstwy wypada ≥ E_max − 1 000, to E_max dla E10 zostaje zwiększone ×1.5 (z cierpliwością bez zmian).
+
+**Wiążąca reguła przeciw wielokrotnemu losowaniu:**
+- Wartości N, S, σ_d, ρ i E_max (§7.5, §5.2) wyprowadza się **wyłącznie z mini-pilota 2.0**, na nowych ziarnach 40011–40020, tym samym skryptem `ffexp/minipilot.py`.
+- Mini-pilot 1 (ziarna 40001–40010, etykieta nakładana na piksele) jest raportowany jako pilot techniczny, a jego wyniki nie wchodzą do wyprowadzeń.
+- Decyzja zapisana i commitowana, zanim autor lub asystent obejrzał jakiekolwiek wartości dokładności lub wyprowadzone parametry z mini-pilota 1. Do tego momentu sprawdzana była wyłącznie liczba ukończonych biegów.

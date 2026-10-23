@@ -11,6 +11,7 @@ from . import models, streams
 BATCH = 128
 CLIP = 10.0
 PATIENCE = 5
+MIN_EPOCHS = 10  # no early stopping before 10 epochs (decision D5a)
 CHUNK = 1000
 
 
@@ -102,7 +103,7 @@ def _train_ff_layer(layer, layer_no, inputs_pos, inputs_neg_fn, n, theta, cfg, s
             since_best = 0
         else:
             since_best += 1
-            if since_best >= patience:
+            if since_best >= patience and epoch + 1 >= MIN_EPOCHS:
                 break
     if best_state is not None:
         layer.load_state_dict(best_state)
@@ -221,7 +222,7 @@ def train_bp(arm, task, xtr, ytr, xes, yes, cfg, seed, emax, w=250, spiral=False
             best_acc, best_epoch, best_state, since_best = acc, epoch, copy.deepcopy(net.state_dict()), 0
         else:
             since_best += 1
-            if since_best >= patience:
+            if since_best >= patience and epoch + 1 >= MIN_EPOCHS:
                 break
     if best_state is not None:
         net.load_state_dict(best_state)

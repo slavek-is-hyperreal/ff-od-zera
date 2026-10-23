@@ -145,3 +145,11 @@ def test_9_1_10_data_hashes():
     assert len(sums) == 10
     for rel in sums:
         data.verify_file(rel)
+
+
+def test_min_epochs_before_early_stop(small):
+    """Decision D5a: early stopping never ends a layer before MIN_EPOCHS."""
+    cfg = {"lr": 1e-6, "wd": 0.0, "c": 0.25}  # practically no learning -> patience would trigger early
+    _, _, info = train.train_ff("P-R", data.ImageTask, *small, cfg, 40001, emax=12)
+    assert info["layer1"]["epochs_run"] >= train.MIN_EPOCHS
+    assert info["layer2"]["epochs_run"] >= train.MIN_EPOCHS

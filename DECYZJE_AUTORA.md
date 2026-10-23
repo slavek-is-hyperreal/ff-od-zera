@@ -74,3 +74,36 @@ Ewentualne osobne badanie konfirmacyjne (wariant B) zostaje odłożone do czasu 
 - Decyzja zapisana i commitowana, zanim autor lub asystent obejrzał jakiekolwiek wartości dokładności lub wyprowadzone parametry z mini-pilota 1. Do tego momentu sprawdzana była wyłącznie liczba ukończonych biegów.
 
 **Uzupełnienie D4 (23.10.2026):** mini-pilot 1 został przerwany na 60/160 ukończonych biegach, za zgodą autora. Wyniki mini-pilota 2.0 wystarczają do wszystkich wyprowadzeń (te same 8 ramion, 10 ziaren, 2 zbiory). Ukończone biegi mini-pilota 1 są zachowane i raportowane jako pilot techniczny.
+
+## D5 – Reguła N po mini-pilocie 2.0 i minimalna liczba epok (23–24.10.2026)
+
+**Stan wyjściowy (commit `9979d09`, publiczny):** dosłowna reguła §7.5 dała N = 60 przy mocy ≈ 0.
+- Najgorszy przypadek łączny (σ_d = max po wszystkich kontrastach i hipotezach) jest zdominowany przez kontrast `P-BANK − P-T` na MNIST: SD 1.42 p.p., σ_d = 1.84 p.p.
+- Ramię `P-T` jest niestabilne w nieostrojonej konfiguracji mini-pilota: dokładności 90.4–95.0%, w ziarnie 40014 warstwa 1 zatrzymana po 1 epoce, w trzech ziarnach limit epok aktywny.
+- To ten sam typ problemu co R2-01: reguła okazała się zdegenerowana.
+
+**Decyzja autora:**
+
+1. **σ_d i progi decyzyjne bez zmian.**
+   - Nie wykluczam `P-T` ani H3.
+   - Nie stosuję odpornych estymatorów σ.
+   - Nie odejmuję składowej próbkowania przykładów.
+   - Wartości z `PARAMETRY_MINIPILOT2.json` zostają takie, jakie wyszły.
+2. **Nowa reguła N (budżetowa, wyłącznie w górę):**
+   - N = największa wartość z drabiny {60, 80, 100, 120, 150}, której **najgorszy** prognozowany koszt (wszystkie etapy GPU, `ffexp/minipilot.forecast`) mieści się w limicie 38 USD minus rezerwa 3 USD minus dotychczasowe wydatki.
+   - Drabinę ustalono przed obliczeniem kosztów na niej.
+   - Moc **nie wpływa** na wybór N.
+   - Większe N zwiększa moc wszystkich typów werdyktu (P, R, G), więc nie faworyzuje żadnej hipotezy.
+3. **Moc raportowana na dwa sposoby, informacyjnie:**
+   - (i) zgodnie z §7.5 (łączny najgorszy przypadek);
+   - (ii) osobno dla H1, H2 i H3, z kontrastami i m danej hipotezy.
+   - Protokół stwierdza wprost, że werdykt H3 będzie najpewniej nierozstrzygnięty z powodu niestabilności `P-T`.
+4. **(a) Minimalna liczba epok:**
+   - wczesne zatrzymanie nie kończy uczenia warstwy przed 10. epoką;
+   - dotyczy jednakowo wszystkich ramion FF i BP oraz E10;
+   - powód: artefakt ziarna 40014;
+   - σ_d i E_max z mini-pilota 2.0, wyznaczone bez tej reguły, są wobec tego oszacowaniem zachowawczym.
+5. **(b) Instancja:** zachowana do decyzji D6 (wybór GPU).
+6. **(c) Synchronizacja wieloetapowa:** przez cron na maszynie autora (`kod/vast/sync_cron.sh`), niezależnie od sesji z asystentem.
+
+Wartość N zostanie wpisana po decyzji D6, bo koszt zależy od typu GPU.

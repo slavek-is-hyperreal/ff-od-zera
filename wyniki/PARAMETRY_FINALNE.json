@@ -1,0 +1,100 @@
+{
+ "gpu": "RTX 3090",
+ "k": 16,
+ "cost_ratio_vs_1070ti": 1.687,
+ "limit_usd": 34.72,
+ "ladder": {
+  "60": {
+   "expected_usd": 4.32,
+   "worst_usd": 20.38,
+   "expected_h": 22.4
+  },
+  "80": {
+   "expected_usd": 5.12,
+   "worst_usd": 24.15,
+   "expected_h": 26.5
+  },
+  "100": {
+   "expected_usd": 5.91,
+   "worst_usd": 27.92,
+   "expected_h": 30.6
+  },
+  "120": {
+   "expected_usd": 6.71,
+   "worst_usd": 31.68,
+   "expected_h": 34.8
+  },
+  "150": {
+   "expected_usd": 7.91,
+   "worst_usd": 37.34,
+   "expected_h": 41.0
+  }
+ },
+ "N": 120,
+ "emax": 51,
+ "min_epochs": 10,
+ "S": {
+  "mnist": {
+   "S_H1H2": 0.30000000000000004,
+   "S_H3": 0.30000000000000004
+  },
+  "fmnist": {
+   "S_H1H2": 1.2000000000000002,
+   "S_H3": 1.35
+  }
+ },
+ "sigma_d": {
+  "mnist": 1.839196438958426,
+  "fmnist": 0.9722870222284999
+ },
+ "rho": 0.5,
+ "power_pooled_7_5": {
+  "power_classP": 0.2399,
+  "power_classR": 0.0,
+  "power_PRZEWAGA_2S3S": 0.23705
+ },
+ "power_per_hypothesis": {
+  "H1": {
+   "S": [
+    0.30000000000000004,
+    1.2000000000000002
+   ],
+   "sigma": [
+    0.513,
+    0.872
+   ],
+   "m": 6,
+   "power_classP": 0.99995,
+   "power_classR": 1.0,
+   "power_PRZEWAGA_2S3S": 1.0
+  },
+  "H2": {
+   "S": [
+    0.30000000000000004,
+    1.2000000000000002
+   ],
+   "sigma": [
+    0.758,
+    0.788
+   ],
+   "m": 5,
+   "power_classP": 0.9716,
+   "power_classR": 0.8803,
+   "power_PRZEWAGA_2S3S": 0.9709
+  },
+  "H3": {
+   "S": [
+    0.30000000000000004,
+    1.35
+   ],
+   "sigma": [
+    1.839,
+    0.972
+   ],
+   "m": 4,
+   "power_classP": 0.2527,
+   "power_classR": 0.0,
+   "power_PRZEWAGA_2S3S": 0.2484
+  }
+ }
+}

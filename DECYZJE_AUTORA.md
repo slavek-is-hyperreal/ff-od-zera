@@ -107,3 +107,23 @@ Ewentualne osobne badanie konfirmacyjne (wariant B) zostaje odłożone do czasu 
 6. **(c) Synchronizacja wieloetapowa:** przez cron na maszynie autora (`kod/vast/sync_cron.sh`), niezależnie od sesji z asystentem.
 
 Wartość N zostanie wpisana po decyzji D6, bo koszt zależy od typu GPU.
+
+## D6 – Wybór GPU i wartość N (24.10.2026)
+
+**Test przepustowości** (`wyniki/benchmark_D6/`, ten sam test `ffexp.gpu_check`):
+
+| GPU | Przepustowość przy najlepszym k (epoki-warstwy/h) | Cena USD/h | USD / 1000 epok-warstw | 9.1.6 / 9.1.9 |
+|---|---|---|---|---|
+| RTX 3090 (k = 16) | 4 439 | 0.193 | 0.043 | tak / tak |
+| RTX 4090 (k = 12; k = 16: brak VRAM) | 4 356 | 0.495 | 0.114 | tak / **nie** (predykcje różne przy maks. różnicy 2.4e-7) |
+| GTX 1070 Ti (k = 6, pomiar z 23.10) | 2 406 | 0.062 | 0.026 | tak / tak |
+
+**Decyzja autora:** RTX 3090 (oferta 52756395, instancja 57428872), k = 16, dla Etapów A, B, C oraz E2 i E9. Ze względu na termin autor wybrał kartę szybszą, a nie tańszą na epokę (GTX 1070 Ti). RTX 4090 i GTX 1070 Ti zostały zniszczone.
+
+**N według reguły D5:**
+- limit: 38 − 3 (rezerwa) − 0.28 (wydatki) = 34.72 USD;
+- koszty GTX 1070 Ti przeliczone współczynnikiem kosztu na epokę 3090/1070 Ti = 1.69;
+- najgorszy koszt: N = 120 → 31.68 USD (mieści się), N = 150 → 37.34 USD (nie mieści się);
+- **N = 120.**
+
+Pełne wartości w `wyniki/PARAMETRY_FINALNE.json`.

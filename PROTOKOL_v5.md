@@ -1,6 +1,6 @@
 # Protokół badania: heterogeniczność i kolejność nieliniowości w sieciach Forward-Forward przy stałym budżecie parametrów
 
-**Wersja:** v5 (finalna do zamrożenia; zamrożenie po §9 i §10)
+**Wersja:** v5 (zamrażana tagiem `ff-od-zera-prereg`; wartości wiążące w §16)
 **Data:** 23.10.2026
 **Autor:** Sławomir Majcher
 **Katalog:** `/vectorlegis_ssd_pool/uczelnia/eksperyment_ff_od_zera/`
@@ -220,7 +220,8 @@ Strumienie `split`, `order` i `neg` są identyczne dla wszystkich ramion przy ty
 ### 5.2. Epoki i zatrzymanie
 
 - **Wczesne zatrzymanie:** cierpliwość 5 epok, mierzona na dokładności podzbioru 5k. Dla warstwy 1 dokładność liczona jest z G₁, dla warstwy 2 z G₁ + G₂. Przywracane są wagi z najlepszej epoki.
-- **Limit epok:** E_max = max(30, ⌈1.5 × P90 epoki najlepszej w mini-pilocie⌉), nie więcej niż 80. P90 jest liczony po obu warstwach i wszystkich ramionach mini-pilota.
+- **Limit epok:** E_max = max(30, ⌈1.5 × P90 epoki najlepszej w mini-pilocie⌉), nie więcej niż 80. P90 jest liczony po obu warstwach i wszystkich ramionach mini-pilota. Wartość: §16.
+- **Minimum epok (D5a):** wczesne zatrzymanie nie kończy uczenia warstwy przed 10. epoką.
 - **Reguła limitu aktywnego** (por. R4-07). Sprawdzana jest po Etapie A (zmiana obowiązuje od Etapu B) i ponownie po Etapie B (zmiana obowiązuje od Etapu C):
   - jeśli dla któregokolwiek ramienia więcej niż 25% biegów etapu ma najlepszą epokę ≥ E_max − 2 w którejkolwiek warstwie,
   - to E_max dla **wszystkich** ramion wzrasta o 50%.
@@ -445,7 +446,7 @@ Konfiguracja mini-pilota nie jest strojona, więc S może być nieco szersze ni�
 
 Kategoria PRZEWAGA (> S) jest drugorzędna. Jej moc dla Δ = 2S/3S jest tylko raportowana.
 
-**Reguła N.** N to najmniejsza wartość z {30, 40, 50, 60} spełniająca cele (i) i (ii). Jeśli żadna jej nie spełnia, N = 60, a uzyskane moce zostają wpisane do protokołu.
+**Reguła N.** N to najmniejsza wartość z {30, 40, 50, 60} spełniająca cele (i) i (ii). Jeśli żadna jej nie spełnia, N = 60, a uzyskane moce zostają wpisane do protokołu. **Zastąpiona decyzją D5** (reguła budżetowa, wyłącznie w górę), ponieważ przy danych mini-pilota 2.0 dawała moc ≈ 0; wartości w §16.
 
 **Wpisywane przed zamrożeniem:**
 - N, S i σ_d per zbiór,
@@ -838,4 +839,48 @@ Pełne tabele w `odpowiedzi/O2.md` i `odpowiedzi/O3.md`. Wszystkie zarzuty zamkn
 | `ffexp/spiral.py` | E10, §7.9 rysunki |
 | `ffexp/spiral_pilot.py` | pilot dynamiki spirali (D4) |
 | `tests/test_protokol.py` | §9.1.1–9.1.10 |
+
+---
+
+## 16. Parametry wiążące (wyznaczone przed zamrożeniem)
+
+Źródła:
+- `wyniki/PARAMETRY_MINIPILOT2.json`: dosłowne wyjście reguły §7.5, commit `9979d09`;
+- `wyniki/PARAMETRY_FINALNE.json`;
+- decyzje D4–D6.
+
+| Parametr | MNIST | Fashion-MNIST |
+|---|---|---|
+| S dla H1, H2 (10% błędu `K-LGT`, mini-pilot 2.0) | 0.30 p.p. | 1.20 p.p. |
+| S dla H3 (10% błędu `P-R`) | 0.30 p.p. | 1.35 p.p. |
+| σ_d (reguła §7.5, łączny najgorszy przypadek) | 1.839 p.p. | 0.972 p.p. |
+| ρ | 0.5 | 0.5 |
+
+| Parametr | Wartość |
+|---|---|
+| E_max (Etap A; dalej reguła §5.2) | 51 epok na warstwę |
+| Minimum epok przed wczesnym zatrzymaniem | 10 |
+| **N (Etap C)** | **120** – reguła D5 przy RTX 3090 (D6) |
+| Ziarna Etapu C | 10001–10120 |
+| Sprzęt | RTX 3090 (Vast.ai), k = 16 procesów, obraz `pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime` |
+| Prognoza kosztu (wszystkie etapy GPU) | spodziewany ~6.7 USD (~35 h), najgorszy 31.7 USD; limit 34.72 USD |
+
+**Moc przy N = 120** (symulacja potoku §7.3–7.4, oba zbiory):
+
+| | klasa P (Δ = S / 2S) | klasa R (Δ = 0) |
+|---|---|---|
+| §7.5 łącznie, najgorszy przypadek | 0.24 | 0.00 |
+| H1 (m = 6; σ_d: MNIST 0.51, F-MNIST 0.87) | 1.00 | 1.00 |
+| H2 (m = 5; σ_d: MNIST 0.76, F-MNIST 0.79) | 0.97 | 0.88 |
+| H3 (m = 4; σ_d: MNIST 1.84, F-MNIST 0.97) | 0.25 | 0.00 |
+
+**Zapowiedź:** werdykt H3 będzie najpewniej NIEROZSTRZYGNIĘTY. Powodem jest niestabilność ramienia `P-T` na MNIST w mini-pilocie (§12.8). Ani ramię `P-T`, ani hipoteza H3 nie są usuwane.
+
+### 12.8. Decyzje D5 i D6 (dopisane przy zamrożeniu)
+
+| Zmiana | Powód |
+|---|---|
+| §7.5: reguła N zastąpiona regułą budżetową, wyłącznie w górę (D5); σ_d i progi bez zmian | dosłowna reguła dała N = 60 przy mocy ≈ 0 (commit `9979d09`) |
+| §5.2: minimum 10 epok przed wczesnym zatrzymaniem (D5a) | artefakt zatrzymania po 1 epoce (ziarno 40014, `P-T`) |
+| §8, §11, §16: RTX 3090, k = 16, N = 120 (D6) | wybór autora po teście przepustowości 3090 vs 4090 |
 

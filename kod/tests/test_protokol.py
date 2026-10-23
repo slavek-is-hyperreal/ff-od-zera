@@ -22,22 +22,22 @@ def small():
 
 def test_9_1_1_param_counts():
     for arm in models.P_ARMS:
-        assert models.n_params(*models.build_ff(arm)) == 259000
+        assert models.n_params(*models.build_ff(arm)) == 261500
     for arm in models.K_ARMS:
-        assert models.n_params(*models.build_ff(arm)) == 258252
-    expected = {32: (26176, 26531), 64: (54400, 53959), 128: (116992, 117026)}
+        assert models.n_params(*models.build_ff(arm)) == 261255
+    expected = {32: (26496, 26831), 64: (55040, 55480), 128: (118272, 118016)}
     for w, (p, k) in expected.items():
         assert models.n_params(*models.build_ff("P-R", w=w)) == p
         assert models.n_params(*models.build_ff("K-LGT", w=w)) == k
     assert models.n_params(models.BPNet("P-R")) == 261510
-    assert models.n_params(models.BPNet("K-LGT")) == 260762
+    assert models.n_params(models.BPNet("K-LGT")) == 262125
     spiral_p = {8: 112, 16: 352, 32: 1216, 64: 4480}
     spiral_k = {8: 120, 16: 315, 32: 1275, 64: 4495}
     for w in models.E10_WIDTHS:
         assert models.n_params(*models.build_ff("P-R", w=w, in_dim=4, spiral=True)) == spiral_p[w]
         assert models.n_params(*models.build_ff("K-LGT", w=w, in_dim=4, spiral=True)) == spiral_k[w]
     assert models.bank_sizes(250) == (84, 83, 83)
-    assert models.bank_sizes(163) == (55, 54, 54)
+    assert models.bank_sizes(164) == (55, 55, 54)
     assert models.bank_sizes(103) == (35, 34, 34)
     assert len(models.FF_ARMS) == 18
 
@@ -120,8 +120,11 @@ def test_9_1_8_label_pixels(capsys):
         fractions[ds] = (x[:, :10] > 0).any(1).float().mean().item()
     print("odsetek obrazów z niezerowymi pikselami 0-9:", fractions)
     assert fractions["mnist"] == 0.0
-    # F-MNIST exceeds 1% -> recorded in PROTOKOL_v5 §13.14 (limitation), not a failure
-    assert fractions["fmnist"] > 0.01
+    assert fractions["fmnist"] > 0.01  # -> decision D4: label concatenated instead of overwriting pixels
+    x, y = data.load("fmnist", "train")
+    e = data.ImageTask.embed(x[:100], y[:100])
+    assert e.shape[1] == 794 and torch.equal(e[:, :784], x[:100])  # image content untouched
+    assert torch.equal(e[:, 784:].argmax(1), y[:100])
 
 
 def test_9_1_9_buffer_matches_recompute(small):

@@ -22,7 +22,7 @@ def _val_preds(results, runs):
     labels = {ds: data.load(ds, "train")[1].numpy() for ds in ("mnist", "fmnist")}
     out = {}
     for r in runs:
-        p = torch.load(os.path.join(results, "MP", "preds", r["id"] + ".pt"), weights_only=False)
+        p = torch.load(os.path.join(results, r["job"]["stage"], "preds", r["id"] + ".pt"), weights_only=False)
         idx = p["val_idx"].numpy()
         out[r["id"]] = (idx, p["val_pred"].numpy().astype(np.int64) == labels[r["job"]["dataset"]][idx])
     return out
@@ -77,9 +77,10 @@ def main(argv=None):
     ap.add_argument("--workers", type=int, required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--reps", type=int, default=20000)
+    ap.add_argument("--stage", default="MP2", help="MP2 is the only valid source of derivations (decision D4)")
     a = ap.parse_args(argv)
     runs = []
-    for path in sorted(glob.glob(os.path.join(a.results, "MP", "runs", "*.json"))):
+    for path in sorted(glob.glob(os.path.join(a.results, a.stage, "runs", "*.json"))):
         with open(path) as f:
             runs.append(json.load(f))
     expected = len(models.MINIPILOT_ARMS) * len(plans.MINIPILOT_SEEDS) * len(plans.DATASETS)

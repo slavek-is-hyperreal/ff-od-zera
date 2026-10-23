@@ -1,0 +1,2242 @@
+[
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-R",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-T",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "P-BANK",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-LGT",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-G",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-T",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GGT",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-GLT",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-R",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-T",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "P-BANK",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-LGT",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-G",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-T",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GGT",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40011,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40012,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40013,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40014,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40015,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40016,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40017,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40018,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40019,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ },
+ {
+  "stage": "MP2",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-GLT",
+  "seed": 40020,
+  "cfg": {
+   "lr": 0.001,
+   "wd": 0.0001,
+   "c": 0.25
+  },
+  "emax": 60,
+  "w": 250
+ }
+]

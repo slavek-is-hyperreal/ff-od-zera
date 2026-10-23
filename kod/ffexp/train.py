@@ -61,7 +61,7 @@ def _neg_labels(y, n_classes, gen):
 
 
 def _train_ff_layer(layer, layer_no, inputs_pos, inputs_neg_fn, n, theta, cfg, seed, emax, eval_fn, full_batch,
-                    patience=PATIENCE):
+                    patience=PATIENCE, callback=None):
     """Generic greedy FF layer training with early stopping.
 
     inputs_pos(idx) / inputs_neg_fn(idx, yneg) return the layer input for a batch.
@@ -95,6 +95,8 @@ def _train_ff_layer(layer, layer_no, inputs_pos, inputs_neg_fn, n, theta, cfg, s
             break
         acc = eval_fn()
         curve.append({"epoch": epoch, "loss": sum(losses) / max(1, len(losses)), "es_acc": acc})
+        if callback is not None:
+            callback(layer_no, epoch, acc)
         if acc > best_acc:
             best_acc, best_epoch, best_state = acc, epoch, copy.deepcopy(layer.state_dict())
             since_best = 0
@@ -120,11 +122,14 @@ class _NegInputs:
 
 
 def train_ff(arm, task, xtr, ytr, xes, yes, cfg, seed, emax, w=250, spiral=False, use_buffer=True,
-             full_batch=False, device="cpu", patience=PATIENCE):
-    """Train one FF arm (§5.1–5.2). Returns (layer1, layer2, info)."""
+             full_batch=False, device="cpu", patience=PATIENCE, callback=None):
+    """Train one FF arm (§5.1–5.2). Returns (layer1, layer2, info).
+
+    callback(layer_no, epoch, es_acc, layer1, layer2) is called after every epoch (diagnostics only)."""
     torch.manual_seed(streams.init_seed(seed))
     layer1, layer2 = models.build_ff(arm, w=w, in_dim=task.in_dim, spiral=spiral)
     layer1.to(device), layer2.to(device)
+    cb = None if callback is None else (lambda ln, ep, acc: callback(ln, ep, acc, layer1, layer2))
     theta1 = cfg["c"] * layer1.out_dim
     theta2 = cfg["c"] * layer2.out_dim
     t0 = time.time()
@@ -134,7 +139,7 @@ def train_ff(arm, task, xtr, ytr, xes, yes, cfg, seed, emax, w=250, spiral=False
     neg1 = _NegInputs(lambda idx, yneg: task.embed(xtr[idx], yneg), ytr, task.n_classes)
     info1 = _train_ff_layer(
         layer1, 1, lambda idx: task.embed(xtr[idx], ytr[idx]), neg1, n, theta1, cfg, seed, emax,
-        lambda: _accuracy(layer1_scores(layer1, task, xes), yes), full_batch, patience)
+        lambda: _accuracy(layer1_scores(layer1, task, xes), yes), full_batch, patience, cb)
     for p in layer1.parameters():
         p.requires_grad_(False)
     layer1_ok = info1["ok"]
@@ -159,7 +164,7 @@ def train_ff(arm, task, xtr, ytr, xes, yes, cfg, seed, emax, w=250, spiral=False
                 scores[:, c] += models.goodness(layer2(es_buf[c]))
             return _accuracy(scores, yes)
 
-        info2 = _train_ff_layer(layer2, 2, pos_fn, neg2, n, theta2, cfg, seed, emax, eval2, full_batch, patience)
+        info2 = _train_ff_layer(layer2, 2, pos_fn, neg2, n, theta2, cfg, seed, emax, eval2, full_batch, patience, cb)
         if use_buffer:
             del buf
     info = {
@@ -182,7 +187,7 @@ def predict_ff(layer1, layer2, task, x, info):
 
 
 def train_bp(arm, task, xtr, ytr, xes, yes, cfg, seed, emax, w=250, spiral=False, full_batch=False, device="cpu",
-             patience=PATIENCE):
+             patience=PATIENCE, callback=None):
     """BP arm (§5.7): cross-entropy, AdamW, clipping, early stopping on es accuracy."""
     torch.manual_seed(streams.init_seed(seed))
     net = models.BPNet(models.BP_ARMS[arm], n_classes=task.n_classes, w=w,
@@ -210,6 +215,8 @@ def train_bp(arm, task, xtr, ytr, xes, yes, cfg, seed, emax, w=250, spiral=False
         with torch.no_grad():
             acc = _accuracy(net(xes), yes)
         curve.append({"epoch": epoch, "loss": sum(losses) / max(1, len(losses)), "es_acc": acc})
+        if callback is not None:
+            callback(0, epoch, acc, net)
         if acc > best_acc:
             best_acc, best_epoch, best_state, since_best = acc, epoch, copy.deepcopy(net.state_dict()), 0
         else:

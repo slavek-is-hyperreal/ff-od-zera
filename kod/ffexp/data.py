@@ -122,20 +122,21 @@ def make_split(seed: int, n: int = 60000, n_val: int = 10000, n_es: int = 5000) 
 
 
 class ImageTask:
-    """Label embedding for images: pixels 0-9 zeroed, pixel y set to 1 (§5.1)."""
+    """Label embedding for images: one-hot label concatenated to the 784 pixels (§5.1, decision D4).
+
+    Overwriting pixels 0-9 (Hinton, 2022) would destroy image content in 38.9% of Fashion-MNIST images."""
 
     n_classes = 10
-    in_dim = 784
+    in_dim = 794
 
     @staticmethod
     def embed(x: torch.Tensor, y) -> torch.Tensor:
-        out = x.clone()
-        out[:, :10] = 0.0
+        onehot = torch.zeros(len(x), 10, dtype=x.dtype, device=x.device)
         if isinstance(y, int):
-            out[:, y] = 1.0
+            onehot[:, y] = 1.0
         else:
-            out[torch.arange(len(out), device=out.device), y] = 1.0
-        return out
+            onehot[torch.arange(len(x), device=x.device), y] = 1.0
+        return torch.cat([x, onehot], dim=1)
 
 
 class SpiralTask:

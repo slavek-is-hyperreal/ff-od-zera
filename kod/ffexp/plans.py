@@ -21,7 +21,8 @@ import numpy as np
 from . import models
 
 DATASETS = ["mnist", "fmnist"]
-MINIPILOT_SEEDS = list(range(40001, 40011))
+MINIPILOT_SEEDS = list(range(40001, 40011))   # mini-pilot 1 (technical, D4)
+MINIPILOT2_SEEDS = list(range(40011, 40021))  # mini-pilot 2.0: the only source of derivations (D4)
 STAGE_A_SEED = 30001
 STAGE_B_SEEDS = [20001, 20002, 20003]
 STAGE_C_SEED0 = 10000
@@ -59,9 +60,9 @@ def _bp_job(stage, ds, arm, seed, cfg, emax, point=None):
     return job
 
 
-def plan_minipilot():
-    return [_ff_job("MP", ds, arm, s, MINIPILOT_CFG, MINIPILOT_EMAX)
-            for ds in DATASETS for arm in models.MINIPILOT_ARMS for s in MINIPILOT_SEEDS]
+def plan_minipilot(stage="MP", seeds=MINIPILOT_SEEDS):
+    return [_ff_job(stage, ds, arm, s, MINIPILOT_CFG, MINIPILOT_EMAX)
+            for ds in DATASETS for arm in models.MINIPILOT_ARMS for s in seeds]
 
 
 def plan_a(emax, n_points=16):
@@ -215,6 +216,8 @@ def main(argv=None):
     a = ap.parse_args(argv)
     if a.what == "minipilot":
         obj = plan_minipilot()
+    elif a.what == "minipilot2":
+        obj = plan_minipilot("MP2", MINIPILOT2_SEEDS)
     elif a.what == "A":
         obj = plan_a(a.emax)
     elif a.what == "B":

@@ -53,7 +53,7 @@ def _rebuild(ckpt, device):
         l1, l2 = models.build_ff(job["arm"], w=job.get("w", 250))
         l1.load_state_dict(state["layer1"]), l2.load_state_dict(state["layer2"])
         return ("ff", l1.to(device).eval(), l2.to(device).eval()), info
-    net = models.BPNet(models.BP_ARMS[job["arm"]], w=job.get("w", 250))
+    net = models.BPNet(models.BP_ARMS[job["arm"]], w=job.get("w", 250), in_dim=784)
     net.load_state_dict(state["net"])
     return ("bp", net.to(device).eval()), info
 

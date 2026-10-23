@@ -81,16 +81,16 @@ Testy są dwustronne, a każdy wynik ma z góry zapisaną interpretację (§7.4)
 ### 3.1. Topologie (szerokość główna w = 250)
 
 **Płaska (P).** Dwie warstwy FF, każda to Linear + nieliniowość.
-- Warstwa 1: 784 → 250 (196 250 parametrów).
+- Warstwa 1: 794 → 250 (198 750 parametrów; wejście = 784 piksele + 10 wejść etykiety, D4).
 - Warstwa 2: 250 → 250 (62 750 parametrów).
-- **Razem 259 000.**
+- **Razem 261 500.**
 
 **Blokowa (K).** Dwie warstwy FF, każda to blok trzech podwarstw. Każda podwarstwa to Linear + nieliniowość, więc w bloku nie ma złożeń liniowo-liniowych.
 - Wewnątrz bloku gradient straty FF przechodzi przez wszystkie trzy podwarstwy.
 - Między warstwami FF gradient nie przechodzi (`detach`).
-- Blok 1: 784 → 163 → 163 → 250 (195 687 parametrów).
-- Blok 2: 250 → 103 → 103 → 250 (62 565 parametrów).
-- **Razem 258 252**, czyli −0.29% względem P; także każda warstwa FF osobno ma −0.29%.
+- Blok 1: 794 → 164 → 164 → 250 (198 690 parametrów; −0.03% względem warstwy 1 P).
+- Blok 2: 250 → 103 → 103 → 250 (62 565 parametrów; −0.29% względem warstwy 2 P).
+- **Razem 261 255**, czyli −0.09% względem P.
 
 ### 3.2. Nieliniowości
 
@@ -102,7 +102,7 @@ Testy są dwustronne, a każdy wynik ma z góry zapisaną interpretację (§7.4)
 | T | tanh |
 | BANK | ciągłe grupy jednostek L \| G \| T o licznościach ⌈n/3⌉, ⌈(n−1)/3⌉, ⌊n/3⌋ |
 
-Przykładowe podziały BANK: 84/83/83 dla n = 250, 55/54/54 dla n = 163, 35/34/34 dla n = 103.
+Przykładowe podziały BANK: 84/83/83 dla n = 250, 55/55/54 dla n = 164, 35/34/34 dla n = 103.
 
 Wyjściem warstwy FF jest wyjście ostatniej podwarstwy. Z niego liczona jest dobroć.
 
@@ -118,7 +118,7 @@ Wyjściem warstwy FF jest wyjście ostatniej podwarstwy. Z niego liczona jest do
 | `K-LTG`, `K-GLT`, `K-GTL`, `K-TLG`, `K-TGL` | K | permutacje | G/T/L/G/L | komparatory H2 |
 | `K-BANK` | K | BANK→BANK→BANK | mieszane | eksploracyjne (E3) |
 
-**Ramiona BP** (eksploracyjne, E2): `BP-P-R` (261 510 parametrów) i `BP-K-LGT` (260 762 parametrów).
+**Ramiona BP** (eksploracyjne, E2): `BP-P-R` (261 510 parametrów) i `BP-K-LGT` (262 125 parametrów; wejście 784, bez etykiety, wymiary bloków jak w K).
 - Topologie P i K z odczytem 250 → 10.
 - Uczenie end-to-end entropią krzyżową, na obrazach bez nałożonej etykiety.
 
@@ -134,9 +134,9 @@ Wyjściem warstwy FF jest wyjście ostatniej podwarstwy. Z niego liczona jest do
 
 | w | Blok 1 | Blok 2 | Parametry P | Parametry K | Różnica |
 |---|---|---|---|---|---|
-| 32 | 784 → 30 → 30 → 32 | 32 → 13 → 13 → 32 | 26 176 | 26 531 | +1.36% |
-| 64 | 784 → 55 → 55 → 64 | 64 → 26 → 26 → 64 | 54 400 | 53 959 | −0.81% |
-| 128 | 784 → 99 → 99 → 128 | 128 → 53 → 53 → 128 | 116 992 | 117 026 | +0.03% |
+| 32 | 794 → 30 → 30 → 32 | 32 → 13 → 13 → 32 | 26 496 | 26 831 | +1.26% |
+| 64 | 794 → 56 → 56 → 64 | 64 → 26 → 26 → 64 | 55 040 | 55 480 | +0.80% |
+| 128 | 794 → 99 → 99 → 128 | 128 → 53 → 53 → 128 | 118 272 | 118 016 | −0.22% |
 
 #### E10: spirala 2D (§4.4)
 
@@ -180,7 +180,9 @@ Strumienie `split`, `order` i `neg` są identyczne dla wszystkich ramion przy ty
 
 | Pula | Ziarna |
 |---|---|
-| Mini-pilot (§9.3) | 40001–40010 |
+| Mini-pilot 1 (techniczny, D4) | 40001–40010 |
+| Mini-pilot 2.0 (§9.3, jedyne źródło wyprowadzeń) | 40011–40020 |
+| Pilot spirali (D4) | 49001–49003 |
 | Etap A | 30001 |
 | Etap B | 20001–20003 |
 | Etap C | 10001 … 10000+N, gdzie N z §7.5 |
@@ -204,7 +206,7 @@ Strumienie `split`, `order` i `neg` są identyczne dla wszystkich ramion przy ty
 
 ### 5.1. Forward-Forward
 
-- **Etykieta:** piksele 0–9 są zerowane, a piksel o indeksie y ustawiany na 1.0, po skalowaniu obrazu. Wyjątek: w E10 etykieta jest konkatenowana (§4.4).
+- **Etykieta:** wektor one-hot etykiety (10 wymiarów) doklejany do 784 pikseli; wejście FF ma 794 wymiary (D4). Obraz pozostaje nienaruszony, w odróżnieniu od nakładania etykiety na piksele 0–9 (Hinton, 2022). W E10 analogicznie (2 + 2 wymiary, §4.4).
 - **Negatywy:** etykieta y' ~ U({0..9} \ {y}), losowana w każdym batchu ze strumienia `neg`.
 - **Dobroć:** G = Σⱼ aⱼ².
 - **Strata:** L = mean softplus(θ − G_pos) + mean softplus(G_neg − θ).
@@ -751,6 +753,14 @@ Pełne tabele w `odpowiedzi/O2.md` i `odpowiedzi/O3.md`. Wszystkie zarzuty zamkn
 | R5-05 | §7.4: zdanie NIESPÓJNY-ZGODNY-KIERUNEK |
 | R5-06 | `DECYZJE_AUTORA.md` D1 zsynchronizowane z §11.1 |
 
+### 12.7. Decyzja D4: mini-pilot 2.0 (23.10.2026)
+
+| Zmiana | Powód |
+|---|---|
+| §3.1, §3.3, §3.4, §5.1, §13.14: etykieta doklejana (wejście 794), przeliczone wymiary bloków | test 9.1.8: nakładanie etykiety niszczy treść 38.9% obrazów F-MNIST |
+| §4.3, §9.3: mini-pilot 2.0 na ziarnach 40011–40020 jest jedynym źródłem wyprowadzeń; mini-pilot 1 jest techniczny | mini-pilot 1 używał nakładania etykiety; decyzja zapisana przed wglądem w jego wyniki (commit `b3024b1`) |
+| pilot dynamiki spirali (ziarna 49001–49003) z regułą korekty E_max dla E10 | sprawdzenie ustawień E10 przed zamrożeniem |
+
 ### 12.6. Zmiany przed zamrożeniem, wynikające z implementacji (23.10.2026)
 
 | Zmiana | Powód |
@@ -781,7 +791,7 @@ Pełne tabele w `odpowiedzi/O2.md` i `odpowiedzi/O3.md`. Wszystkie zarzuty zamkn
 11. Przy szerokim S na Fashion-MNIST mały, zgodny kierunkowo efekt może dać NIESPÓJNY-ZGODNY-KIERUNEK zamiast klasy P (§7.4).
 12. **E9:** konfiguracje przeniesione z w = 250 bez ponownego strojenia; θ skaluje się jak c · w. Mniejsze sieci mogą być przez to dostrojone gorzej, nierówno między ramionami.
 13. **E10:** zadanie syntetyczne 2D, wejście FF z etykietą konkatenowaną, dopasowanie parametrów łączne (nie per warstwa). Wynik jest ilustracją, nie dowodem.
-14. **Nakładanie etykiety na Fashion-MNIST** (test 9.1.8): 38.9% obrazów treningowych F-MNIST ma niezerowe piksele w pozycjach 0–9 (MNIST: 0%). Nadpisanie tych pikseli etykietą usuwa część informacji z górnej krawędzi obrazu. Dotyczy jednakowo wszystkich ramion FF; ramiona BP widzą obraz bez zmian, co zawyża lukę FF–BP w E2 na F-MNIST.
+14. **Sposób podawania etykiety** (test 9.1.8, D4): 38.9% obrazów treningowych F-MNIST ma niezerowe piksele w pozycjach 0–9, więc etykieta jest doklejana jako 10 dodatkowych wejść, a nie nakładana na piksele, jak u Hintona (2022). Wyniki nie są przez to bezpośrednio porównywalne z wariantem nakładania; FF ma 10 wejść więcej niż BP.
 
 ---
 
@@ -826,5 +836,6 @@ Pełne tabele w `odpowiedzi/O2.md` i `odpowiedzi/O3.md`. Wszystkie zarzuty zamkn
 | `ffexp/evaluate_test.py` | §5.6 ewaluacja testowa bramkowana hashami |
 | `ffexp/final.py` | §7.3–7.8 analiza konfirmacyjna, wrażliwość, analizy eksploracyjne |
 | `ffexp/spiral.py` | E10, §7.9 rysunki |
+| `ffexp/spiral_pilot.py` | pilot dynamiki spirali (D4) |
 | `tests/test_protokol.py` | §9.1.1–9.1.10 |
 

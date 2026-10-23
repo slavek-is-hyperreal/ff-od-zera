@@ -28,7 +28,7 @@ E10_ARMS = ["P-R", "P-T", "P-BANK", "K-R", "K-LGT", "K-GGT"]
 E10_WIDTHS = [8, 16, 32, 64]
 
 # Block inner widths matched per FF layer (§3.1, §3.4): w -> (block-1 inner, block-2 inner).
-K_INNER = {250: (163, 103), 128: (99, 53), 64: (55, 26), 32: (30, 13)}
+K_INNER = {250: (164, 103), 128: (99, 53), 64: (56, 26), 32: (30, 13)}  # for 794-dim FF input (D4)
 # Spiral (§3.4 E10): uniform K width u matched on total parameters.
 SPIRAL_U = {8: 4, 16: 7, 32: 15, 64: 29}
 
@@ -83,7 +83,7 @@ def normalize(a: torch.Tensor) -> torch.Tensor:
     return a / (a.norm(dim=-1, keepdim=True) + NORM_EPS)
 
 
-def layer_dims(arm: str, w: int = 250, in_dim: int = 784, spiral: bool = False):
+def layer_dims(arm: str, w: int = 250, in_dim: int = 794, spiral: bool = False):
     """Return ([dims layer 1], [dims layer 2], (acts1, acts2))."""
     if arm in P_ARMS:
         act = P_ARMS[arm]
@@ -96,7 +96,7 @@ def layer_dims(arm: str, w: int = 250, in_dim: int = 784, spiral: bool = False):
     return [in_dim, a, a, w], [w, b, b, w], (acts, acts)
 
 
-def build_ff(arm: str, w: int = 250, in_dim: int = 784, spiral: bool = False):
+def build_ff(arm: str, w: int = 250, in_dim: int = 794, spiral: bool = False):
     d1, d2, (a1, a2) = layer_dims(arm, w, in_dim, spiral)
     return FFLayer(d1, a1), FFLayer(d2, a2)
 

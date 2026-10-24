@@ -9,3 +9,7 @@ Zapisane 2026-10-24 ok. 20:20 CEST, w trakcie ewaluacji testowej, przed uruchomi
 | H3 (P-BANK vs 4 płaskie) | GORSZOŚĆ / GORSZOŚĆ<S → GORSZOŚĆ<S (klasa G) | klasa G: 60% |
 | E9 | przewaga LGT nad najlepszym ref. rośnie przy mniejszym w | 55% |
 | Zgodność CPU/GPU | > 99.9% przykładów | 85% |
+
+## Prognoza autora (Sławek), ok. 20:22 CEST
+
+„Stawiam, że wyjdzie nam E9 jedynie”: żadna z hipotez konfirmacyjnych H1–H3 nie da pozytywnego wyniku (przewagi), a jedynym „wynikiem” będzie efekt w eksploracyjnym E9 (przewaga ramion heterogenicznych rośnie przy mniejszej szerokości).

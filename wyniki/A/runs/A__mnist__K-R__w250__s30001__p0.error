@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/workspace/ff/kod/ffexp/runner.py", line 177, in worker
+    status = run_job(job, datasets, out, device, torch)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ff/kod/ffexp/runner.py", line 83, in run_job
+    l1, l2, info = train.train_ff(job["arm"], task, x[tr], y[tr], x[es], y[es], job["cfg"], job["seed"],
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ff/kod/ffexp/train.py", line 153, in train_ff
+    buf = layer1_buffer(layer1, task, xtr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ff/kod/ffexp/train.py", line 36, in layer1_buffer
+    buf = torch.empty(task.n_classes, len(x), layer1.out_dim, device=x.device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 478.00 MiB. GPU 0 has a total capacity of 23.56 GiB of which 333.12 MiB is free. Process 9878 has 1.47 GiB memory in use. Process 9874 has 1.48 GiB memory in use. Process 9865 has 1.48 GiB memory in use. Process 9873 has 1.48 GiB memory in use. Process 9869 has 1.47 GiB memory in use. Process 9872 has 1.48 GiB memory in use. Process 9866 has 1.48 GiB memory in use. Including non-PyTorch memory, this process has 1010.00 MiB memory in use. Process 9880 has 1.48 GiB memory in use. Process 9879 has 1.48 GiB memory in use. Process 9870 has 1.48 GiB memory in use. Process 9867 has 1.48 GiB memory in use. Process 9868 has 1.48 GiB memory in use. Process 9871 has 1.48 GiB memory in use. Process 9877 has 1.48 GiB memory in use. Process 9876 has 1.48 GiB memory in use. Of the allocated memory 640.74 MiB is allocated by PyTorch, and 5.26 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

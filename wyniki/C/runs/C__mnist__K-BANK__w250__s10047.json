@@ -1,0 +1,46 @@
+{
+ "id": "C__mnist__K-BANK__w250__s10047",
+ "job": {
+  "stage": "C",
+  "kind": "ff",
+  "dataset": "mnist",
+  "arm": "K-BANK",
+  "seed": 10047,
+  "cfg": {
+   "lr": 0.0007138291378215211,
+   "wd": 7.280832648932171e-06,
+   "c": 0.08337887056696927
+  },
+  "emax": 77,
+  "w": 250
+ },
+ "n_params": 261255,
+ "train_time_sec": 486.9002945423126,
+ "wall_time_sec": 487.3422667980194,
+ "versions": {
+  "python": "3.11.10",
+  "torch": "2.5.1+cu124",
+  "host": "eb7f758b5c8f",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "driver": "580.159.03",
+  "code_commit": "8df4f0f30cea7a1143ef1652b6a313512a6fcb9e"
+ },
+ "ckpt_sha256": "cd90e90c51ce1e5e5c253f8dedf13f3a79b030769f5421e6ce82c9671c12b9c8",
+ "best_epoch": {
+  "layer1": 33,
+  "layer2": 13
+ },
+ "epochs_run": {
+  "layer1": 39,
+  "layer2": 19
+ },
+ "nan": {
+  "layer1": false,
+  "layer2": false
+ },
+ "ok": {
+  "layer1": true,
+  "layer2": true
+ }
+}

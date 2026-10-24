@@ -1,0 +1,46 @@
+{
+ "id": "C__fmnist__K-TGL__w250__s10030",
+ "job": {
+  "stage": "C",
+  "kind": "ff",
+  "dataset": "fmnist",
+  "arm": "K-TGL",
+  "seed": 10030,
+  "cfg": {
+   "lr": 0.0004664154904740126,
+   "wd": 0.0002774885956345029,
+   "c": 0.03220378809918265
+  },
+  "emax": 77,
+  "w": 250
+ },
+ "n_params": 261255,
+ "train_time_sec": 458.3586392402649,
+ "wall_time_sec": 458.74478483200073,
+ "versions": {
+  "python": "3.11.10",
+  "torch": "2.5.1+cu124",
+  "host": "d558619aff99",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "driver": "570.133.20",
+  "code_commit": "8df4f0f30cea7a1143ef1652b6a313512a6fcb9e"
+ },
+ "ckpt_sha256": "b14f95e5c33a0e26d4b6a34b3d16b15dbf1fc3605514e41b435649b5c610b6c3",
+ "best_epoch": {
+  "layer1": 42,
+  "layer2": 14
+ },
+ "epochs_run": {
+  "layer1": 48,
+  "layer2": 20
+ },
+ "nan": {
+  "layer1": false,
+  "layer2": false
+ },
+ "ok": {
+  "layer1": true,
+  "layer2": true
+ }
+}

@@ -1,0 +1,3 @@
+[w0] done C__fmnist__P-R__w250__s10101
+[w2] done C__mnist__K-T__w250__s10063
+[w9] done C__mnist__K-LLT__w250__s10028
